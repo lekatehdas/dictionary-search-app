@@ -1,19 +1,25 @@
 import SearchBar from "../SearchBar.tsx";
+import ResultList from "../List.tsx";
+import {useState} from "react";
 
 const SearchPage = () => {
-  const handleSearch = (query: string) => {
-    console.log('Searching for:', query);
-    // Call your searchWord service function here
-  };
+    const [resultsList, setResultsList] = useState<string[]>([]);
 
-  return (
-    <div>
-      <h1>Dictionary Search</h1>
-        <p>Search words by typing them, and select the wanted one</p>
-      <SearchBar onSearch={handleSearch} />
-      {/* TODO results here */}
-    </div>
-  );
+
+    const handleSearch = (query: string) => {
+        console.log('Searching for:', query);
+        // TODO get the list of words.
+    };
+
+
+    return (
+        <div>
+            <h1>Dictionary Search</h1>
+            <p>Search words by typing them, and select the wanted one</p>
+            <SearchBar onSearch={handleSearch}/>
+            <ResultList children={resultsList} title={"Results"}/>
+        </div>
+    );
 };
 
 export default SearchPage;
