@@ -21,11 +21,11 @@ const SearchPage = () => {
     };
 
     return (
-        <div>
-            <h1>Dictionary Search</h1>
-            <p>Search words by typing them, and select the wanted one</p>
-            <SearchBar onSearch={handleSearchInput} />
-            <ResultList children={resultsList} title={"Results"} word={searchQuery} />
+        <div className="container">
+            <h1 className="display-4">Dictionary Search</h1>
+            <p className="lead">Search words by typing them, and select the wanted one</p>
+            <SearchBar onSearch={handleSearchInput}/>
+            <ResultList children={resultsList} title="Results" word={searchQuery}/>
         </div>
     );
 };
