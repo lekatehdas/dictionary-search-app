@@ -1,20 +1,23 @@
+import {useNavigate} from "react-router-dom";
+
 interface Props {
     children: string[];
     title: string;
-    onSelectItem: (item: string) => void;
 }
 
-const ResultList: React.FC<Props> = ({children, title, onSelectItem}: Props) => {
+const ResultList: React.FC<Props> = ({children, title}: Props) => {
+    const navigate = useNavigate()
     return (
         <>
             <h2>{title}</h2>
             {children.length === 0 && <p>No results</p>}
-            <ul className="listGroup">
+            <ul className="list-group">
                 {children.map((item) => (
                     <li
+                        className='list-group-item'
                         key={item}
                         onClick={() => {
-                            onSelectItem(item)
+                            navigate(`/${item}`)
                         }}
                     >
                         {item}

@@ -19,6 +19,7 @@ const SearchBar = ({ onSearch }: Props) => {
 
   return (
     <input
+        className="input-group-text"
       type="text"
       placeholder="Search for a word..."
       value={searchQuery}
