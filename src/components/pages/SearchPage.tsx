@@ -8,6 +8,7 @@ const SearchPage = () => {
     const resultList = ["Alpha", "Bravo", "Charlie"]
 
     const handleSearch = (query: string) => {
+        console.log(query)
         // TODO get list of possible words.
     };
 
