@@ -1,19 +1,5 @@
-import axios from 'axios';
-
-interface Definition {
-    definition: string;
-}
-
-interface Meaning {
-    partOfSpeech: string;
-    definitions: Definition[];
-}
-
-export interface WordData {
-    word: string;
-    phonetic: string;
-    meanings: Meaning[];
-}
+import axios, {AxiosError} from 'axios';
+import {ErrorObject, WordData} from "../models/dataModels.ts";
 
 const parseWordData = (data: any): WordData => ({
     word: data.word,
@@ -26,16 +12,29 @@ const parseWordData = (data: any): WordData => ({
     }))
 });
 
-const getWordDetails = async (word: string | undefined): Promise<WordData | null> => {
-    if (word === undefined)
-        return null
+const getWordDetails = async (word: string | undefined): Promise<WordData | ErrorObject | null> => {
+    if (word === undefined) {
+        return null;
+    }
+
     try {
         const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = response.data;
 
+        console.log(response.status)
         return data.length > 0 ? parseWordData(data[0]) : null;
     } catch (error) {
-        console.error(error);
+        const axiosError = error as AxiosError;
+
+        if (axiosError.response && axiosError.response.status === 404) {
+            return {
+                title: 'No Definitions Found',
+                message: "Sorry pal, we couldn't find definitions for the word you were looking for.",
+                resolution: 'You can try the search again at a later time or head to the web instead.',
+            };
+        } else {
+            console.error('Error: ', axiosError.message);
+        }
         return null;
     }
 };
