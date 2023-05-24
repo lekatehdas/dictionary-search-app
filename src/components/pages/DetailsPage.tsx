@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {ErrorObject, WordData} from "../../models/dataModels.ts";
 import getWordDetails from "../../services/WordSearchSevice.ts";
 
 
 const DetailsPage = () => {
+    const navigate = useNavigate()
+
     const {word} = useParams();
     const [wordDetails, setWordDetails] = useState<WordData | null>(null);
     const [error, setError] = useState<ErrorObject | null>(null);
@@ -71,7 +73,7 @@ const DetailsPage = () => {
     return (
         <div className="container">
             <nav>
-                <button className="btn btn-primary" onClick={() => window.history.back()}>
+                <button className="btn btn-primary" onClick={() => navigate('/')}>
                     Back to search
                 </button>
             </nav>

@@ -21,7 +21,6 @@ const getWordDetails = async (word: string | undefined): Promise<WordData | Erro
         const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = response.data;
 
-        console.log(response.status)
         return data.length > 0 ? parseWordData(data[0]) : null;
     } catch (error) {
         const axiosError = error as AxiosError;
@@ -40,7 +39,6 @@ const getWordDetails = async (word: string | undefined): Promise<WordData | Erro
 };
 
 export default getWordDetails;
-
 
 export async function wordSearch(query: string) {
     if (!query)

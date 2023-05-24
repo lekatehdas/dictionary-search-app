@@ -8,13 +8,13 @@ const SearchBar = ({onSearch}: Props) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        if (searchQuery) {
+        if (searchQuery !== undefined && searchQuery !== null) {
             onSearch(searchQuery);
         }
     }, [searchQuery, onSearch]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
+        setSearchQuery(e.target.value.trimStart());
     };
 
     return (
