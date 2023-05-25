@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import {ErrorObject, WordData} from "../../models/dataModels.ts";
-import getWordDetails from "../../services/WordSearchSevice.ts";
+import {getWordDetails} from "../../services/WordSearchSevice.ts";
 
 
 const DetailsPage = () => {
