@@ -3,7 +3,10 @@ import {useNavigate, useParams} from "react-router-dom";
 import {ErrorObject, WordData} from "../../models/dataModels.ts";
 import {getWordDetails} from "../../services/WordSearchService.ts";
 
-
+/**
+ * DetailsPage component is responsible for displaying the detailed information
+ * about a word. It uses the 'getWordDetails' service to fetch the data.
+ */
 const DetailsPage = () => {
     const navigate = useNavigate()
 

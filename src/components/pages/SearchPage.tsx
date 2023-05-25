@@ -3,6 +3,10 @@ import ResultList from "../List.tsx";
 import {useEffect, useState} from "react";
 import {wordSearch} from "../../services/WordSearchService.ts";
 
+/**
+ * The SearchPage component handles user's search queries and displays a list of
+ * search results. It uses the 'wordSearch' service to fetch data from the API.
+ */
 const SearchPage = () => {
     const [resultsList, setResultsList] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");

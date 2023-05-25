@@ -7,6 +7,12 @@ interface Props {
     word: string
 }
 
+/**
+ * ResultList component receives a list of strings as children,
+ * a title, and a word as props.
+ * It displays a list of results to the user, highlighting the word that matches the search query.
+ * When a list item is clicked, it navigates to a new page using the item's name.
+ */
 const ResultList: React.FC<Props> = ({children, title, word}: Props) => {
     const navigate = useNavigate()
 
