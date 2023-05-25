@@ -5,7 +5,6 @@ the DictionaryAPI. This app is built with React.
 ## Table of Contents
 
 - [Installation](#installation)
-- [Project Structure](#Project Structure)
 - [Usage](#usage)
 - [Development](#development)
 - [Testing](#testing)
@@ -13,41 +12,25 @@ the DictionaryAPI. This app is built with React.
 - [License](#license)
 
 ## Installation
-
-- Clone the repository:
-- git clone https://github.com/your-username/your-repo.git
-- cd your-repo
-- npm install
-
-## Project Structure
-dictionary-search-app
-  - tests (Test files)
-  - dist (Built static files)
-  - coverage (Code coverage reports)
-  - public
-  - src
-    - assets
-    - components
-      - pages
-    - models
-    - services
-  - README.md
-
+With CLI
+- `git clone https://github.com/lekatehdas/dictionary-search-app`
+- `cd dictionary-search-app`
+- `npm install`
 
 ## Usage
-There is a searchbar, the input there is send to https://api.datamuse.com/sug. 
-When there are results they will be displayed in the list below. Click an item, and you will be directed
-to a "Details page". This page calls https://api.dictionaryapi.dev/api/v2/entries/en/ for definitions,
-which will be displayed there.
+Start page or "Search Page" has a searchbar, the input there is send to https://api.datamuse.com/sug. 
+When there are results, they will be displayed in the list below the searchbar. Click an item in the list, will direct
+you to a "Details page". This page calls https://api.dictionaryapi.dev/api/v2/entries/en/ for the definitions,
+which will be displayed there, in the case that there are no results, a warning card will be shown.
 
 ## Development
-To run development in your CLI run command __npm run dev__
+To run development in your CLI type `npm run dev`
 
 ## Testing
-For testing run command __npm test__ in your CLI, this will also generate a coverage report.
+For testing run `npm test` in your CLI, this will also generate a coverage report.
 
 ## Build
-To create a build run __npm run build__ in your CLI.
+To create a build run `npm run build` in your CLI.
 After building the project, the dist/ directory will contain your built static files.
 
 Depending on your hosting platform, there may be different steps to deploy the build. Below are a few examples:
