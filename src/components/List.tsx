@@ -11,14 +11,10 @@ const ResultList: React.FC<Props> = ({children, title, word}: Props) => {
     const navigate = useNavigate()
 
     const highlightText = (text: string, highlight: string) => {
-        if (!highlight.trim())
-            return <span>{text}</span>;
-
         const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
 
         return <span>{parts.map((part, i) =>
-            part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part
-        )}</span>;
+            part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part)}</span>;
     }
 
     return (

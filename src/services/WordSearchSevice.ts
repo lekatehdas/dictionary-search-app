@@ -27,10 +27,26 @@ const getWordDetails = async (word: string | undefined): Promise<WordData | Erro
 
 export default getWordDetails;
 
-export async function wordSearch(query: string) {
+export async function wordSearch(query: string, maxResults = 10): Promise<string[]> {
     if (!query)
-        return []
-    return ["Alpha", "Albino", "Albatross", query]
+        return [];
+
+    try {
+        const response = await axios.get(`https://api.datamuse.com/sug?s=*${query}*&max=${maxResults}`);
+        const data = response.data;
+
+        if (!data || data.length === 0) {
+            return [];
+        }
+
+        const words = data.map((item: any) => item.word);
+
+        return Array.from(new Set(words));
+
+    } catch (error: any) {
+        console.error(`Error in wordSearch: ${error.message}`);
+        return [];
+    }
 }
 
 function getParsedUrl(word: string) {
