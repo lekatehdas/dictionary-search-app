@@ -31,7 +31,7 @@ const DetailsPage = () => {
         if (wordDetails) {
             return (
                 <>
-                    <h3 className="mt-4">Phonetic: {wordDetails.phonetic}</h3>
+                    {wordDetails.phonetic && <h3 className="mt-4">Phonetic: {wordDetails.phonetic}</h3>}
 
                     {wordDetails.meanings.map((meaning, index) => (
 
