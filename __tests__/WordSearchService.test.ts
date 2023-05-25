@@ -1,8 +1,8 @@
 import axios from 'axios';
-import {getWordDetails, wordSearch} from "../src/services/WordSearchSevice";
-import mocked = jest.mocked;
+import {getWordDetails, wordSearch} from "../src/services/WordSearchService";
 import {mockData, mockSuggestions} from "./mockData";
 
+import mocked = jest.mocked;
 jest.mock('axios');
 
 describe('Testing Word Module', () => {

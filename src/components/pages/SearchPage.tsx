@@ -1,7 +1,7 @@
 import SearchBar from "../SearchBar.tsx";
 import ResultList from "../List.tsx";
 import {useEffect, useState} from "react";
-import {wordSearch} from "../../services/WordSearchSevice.ts";
+import {wordSearch} from "../../services/WordSearchService.ts";
 
 const SearchPage = () => {
     const [resultsList, setResultsList] = useState<string[]>([]);
