@@ -20,9 +20,9 @@ export async function getWordDetails(word: string | undefined): Promise<WordData
 
     try {
         const data = await fetchData(getParsedUrl(word));
-        return data.length > 0 ? parseWordData(data[0]) : null;
+        return data?.length > 0 ? parseWordData(data[0]) : null;
 
-    } catch (error) {
+    } catch (error: any) {
         return axiosErrorHandling(error);
     }
 }

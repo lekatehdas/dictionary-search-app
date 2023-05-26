@@ -28,6 +28,8 @@ To run development in your CLI type `npm run dev`
 
 ## Testing
 For testing run `npm test` in your CLI, this will also generate a coverage report.
+When running tests you'll get an `Error in fetchData: test` this is due to how I mocked the data,
+does not affect the outcome.
 
 ## Build
 To create a build run `npm run build` in your CLI.

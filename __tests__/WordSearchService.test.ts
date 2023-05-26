@@ -33,7 +33,7 @@ describe('Testing Word Module', () => {
         });
 
         it('Should return error object when status 404', async () => {
-            mocked(axios.get).mockRejectedValue({response: {status: 404}});
+            mocked(axios.get).mockRejectedValue({ response: {status: 404} });
 
             const res = await getWordDetails("wrong_word");
 
